@@ -1,0 +1,133 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Monero",
+		"_postman_id": "85779dca-c543-f732-3f17-8da78327eb2d",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "access/validate-client-account",
+			"request": {
+				"url": "{{url}}api/access/validate-client-account",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"account\": \"12345678\",\n\t\"operatorCode\": \"12345678\"\n}"
+				},
+				"description": ""
+			},
+			"response": [
+				{
+					"id": "d3e8c6d4-8257-4ac7-b60d-f5dccd5c4b83",
+					"name": "Bad json",
+					"originalRequest": {
+						"url": "{{url}}api/access/validate-client-account",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"account\": \"12345678\"\n}"
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plainText",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Sat, 14 Apr 2018 12:32:05 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "server",
+							"key": "server",
+							"value": "Kestrel",
+							"description": "A name for the server"
+						}
+					],
+					"cookie": [],
+					"responseTime": 48,
+					"body": "{\n\t\"account\": \"12345678\"\n}"
+				}
+			]
+		},
+		{
+			"name": "access/create-client-access",
+			"request": {
+				"url": "{{url}}api/access/create-client-access",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"12345678\",\n\t\"password\": \"12345678\"\n}"
+				},
+				"description": ""
+			},
+			"response": [
+				{
+					"id": "a8038d43-fad2-44ec-9d77-82b051257b06",
+					"name": "Bad json",
+					"originalRequest": {
+						"url": "{{url}}api/access/validate-client-account",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"account\": \"12345678\"\n}"
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plainText",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "date",
+							"key": "date",
+							"value": "Sat, 14 Apr 2018 12:32:05 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "server",
+							"key": "server",
+							"value": "Kestrel",
+							"description": "A name for the server"
+						}
+					],
+					"cookie": [],
+					"responseTime": 48,
+					"body": "{\n\t\"account\": \"12345678\"\n}"
+				}
+			]
+		}
+	]
+}
