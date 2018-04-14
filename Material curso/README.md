@@ -24,3 +24,6 @@ You can also refer to some other channels like
 
 And search, there are gitter channels, slack, stackoverflow, github repos... we are in the communications and information era, lets take
 advantage and stand on the shoulders of giants.
+
+# About me
+I love programming and elegant code, i do not consider an expert mysself, but i am always happy to talk and lear from others while maybe they learn something from me, so you can always contact me at rekiem87@gmail.com (personal mail)
