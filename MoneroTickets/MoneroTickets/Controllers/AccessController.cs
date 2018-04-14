@@ -49,5 +49,21 @@ namespace MoneroTickets.Controllers
 
             return NoContent();
         }
-    }
+
+		[HttpPost("create-client-access")]
+		public IActionResult CreateClientAccess([FromBody]CreateClientAccessRequest request)
+		{
+			if (!ModelState.IsValid)
+			{
+				// Something wasn't valid on the model
+				return BadRequest(new JsonErrors(ModelState));
+			}
+			_logger.LogTrace("Received request: {0}", request);
+
+			//if (!_bankService.ValidateClientAccount(request.OperatorCode, request.Account))
+			//	return BadRequest("InvalidData");
+
+			return NoContent();
+		}
+	}
 }

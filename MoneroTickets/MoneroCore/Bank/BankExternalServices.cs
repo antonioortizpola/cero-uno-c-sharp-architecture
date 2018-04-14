@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace MoneroCore.Bank
@@ -8,9 +9,9 @@ namespace MoneroCore.Bank
         private readonly BankExternalServiceCredentials _bankExternalServiceCredentials;
         private readonly ILogger<BankExternalServices> _logger;
 
-        public BankExternalServices(IOptions<BankExternalServiceCredentials> options, ILogger<BankExternalServices> logger)
+        public BankExternalServices(IConfiguration configuration, ILogger<BankExternalServices> logger)
         {
-            _bankExternalServiceCredentials = options.Value;
+	        _bankExternalServiceCredentials = configuration.GetSection("BankExternalServiceCredentials").Get<BankExternalServiceCredentials>();
             _logger = logger;
         }
 

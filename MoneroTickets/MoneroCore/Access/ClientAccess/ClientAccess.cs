@@ -39,8 +39,16 @@ namespace MoneroCore.Access.ClientAccess
 
         public SessionData CreateClientAccess(string email, string password)
         {
-            throw new System.NotImplementedException();
-        }
+			var clientId = _clientService.ValidateClientSignIn(email, password);
+			if (!clientId.HasValue)
+				throw new InvalidSignInData();
+
+			//if (!_bankService.ValidateClientEmail(email, operatorCode))
+			//	throw new InvalidSignInData();
+
+			var token = _tokenService.SignInUser(clientId.Value);
+			return new SessionData(email, token);
+		}
 
         public void Exit(string token)
         {
