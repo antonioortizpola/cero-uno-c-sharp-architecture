@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using InvoiceCommon;
 using InvoiceCommon.Invoice;
 using InvoiceCommon.Invoice.Persistence;
 using Microsoft.AspNetCore.Builder;
@@ -32,21 +33,7 @@ namespace WebInvoicer
 
             services.AddMvc();
 
-            var contianer = new Container();
-
-            contianer.Configure(config =>
-                {
-                    config.Scan(_ =>
-                        {
-                            _.TheCallingAssembly();
-                            _.WithDefaultConventions();
-                        }
-                    );
-                    config.Populate(services);
-                }
-            );
-
-            return contianer.GetInstance<IServiceProvider>();
+            return InvoiceConfigurator.Configure(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

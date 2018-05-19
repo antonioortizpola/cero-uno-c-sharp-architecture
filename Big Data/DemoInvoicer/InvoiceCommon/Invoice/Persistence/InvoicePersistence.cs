@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using InvoiceCommon.Invoice.Persistence.ViewModels;
@@ -23,6 +24,13 @@ namespace InvoiceCommon.Invoice.Persistence
                 .AddAsync(invoiceToSave);
             await _invoiceContext.SaveChangesAsync();
             return invoiceToSave.Id;
+        }
+
+        public Task SetIncomingAsProcessing(IList<int> incomingInvoicesToUpdate)
+        {
+            return _invoiceContext.InvoicesStatus
+                .Where(x => incomingInvoicesToUpdate.Contains(x.Id))
+                .UpdateFromQueryAsync(x => new InvoiceStatusDb { InvoiceStatus = InvoiceStatus.Processing });
         }
     }
 }

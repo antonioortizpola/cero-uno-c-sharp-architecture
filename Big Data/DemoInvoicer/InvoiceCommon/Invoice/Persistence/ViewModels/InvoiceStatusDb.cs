@@ -12,7 +12,7 @@ namespace InvoiceCommon.Invoice.Persistence.ViewModels
         public int Id { get; set; }
         public InvoiceStatus InvoiceStatus { get; set; }
 
-        private InvoiceStatusDb()
+        public InvoiceStatusDb()
         {
         }
 

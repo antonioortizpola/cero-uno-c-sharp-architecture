@@ -35,5 +35,15 @@ namespace InvoiceCommon.Invoice
             await _invoiceJournalRepo.Create(invoiceId, "Created");
             return invoiceId;
         }
+
+        public async Task SetIncomingAsProcessing(IList<int> incomingInvoicesToUpdate)
+        {
+            await _invoicePersistence.SetIncomingAsProcessing(incomingInvoicesToUpdate);
+
+            foreach (var invoiceToUpdate in incomingInvoicesToUpdate)
+            {
+                await _invoiceJournalRepo.Create(invoiceToUpdate, "Selected by console to process");
+            }
+        }
     }
 }
